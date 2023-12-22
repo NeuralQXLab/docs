@@ -1,0 +1,38 @@
+{
+	"last-manual": "hadrosaurus",
+	"last-update": 1703252402007,
+	"pac-type": "url",
+	"profile.hadrosaurus": {
+		"value": {
+			"mode": "fixed_servers",
+			"noPrompt": false,
+			"remoteDNS": false,
+			"rules": {
+				"bypassList": [
+					"localhost",
+					"127.0.0.1",
+					"192.168.8.0"
+				],
+				"proxyForFtp": {
+					"host": "127.0.0.1",
+					"port": 9156,
+					"scheme": "socks5"
+				},
+				"proxyForHttp": {
+					"host": "127.0.0.1",
+					"port": 9156,
+					"scheme": "socks5"
+				},
+				"proxyForHttps": {
+					"host": "127.0.0.1",
+					"port": 9156,
+					"scheme": "socks5"
+				}
+			}
+		}
+	},
+	"profiles": [
+		"hadrosaurus"
+	],
+	"script": "function FindProxyForURL(url, host)\n{\n  if (shExpMatch(url, \"jupyterhub.idris.fr/*\")) {\n    return \"SOCKS localhost:9156\";\n  } else {\n    return \"DIRECT\";\n  }\n}"
+}

@@ -8,13 +8,14 @@ You should edit your `.ssh/config` file to add the following lines to allow easy
 
 ```bash
 Host pascal
-    User filippo.vicentini
+    User YOUR_CHOLESKY_USERNAME
     Hostname pascal.cpht.polytechnique.fr
+    DynamicForward 9156
 
 Host jeanzay
     Hostname jean-zay.idris.fr
     ProxyJump pascal
-    User YOUR_USERNAME
+    User YOUR_IDRIS_USERNAME
 ```
 
 You should have received an email with the USERNAME and the first half of the password (the second half of the password is the one you chose when you filled the forms to ask for access).
@@ -35,4 +36,21 @@ From now on you can login directly with `ssh jeanzay`.
 
 ## Setup VSCODE remote.
 
-It does not easily work...
+Unfrotunately standard vscode on Jean Zay is blocked, however you can still use it through some hoops and crooks.
+
+ - Ensure that in your `.ssh/config` file you have `pascal` setup with `DynamicForward 9156` 
+ - Use **Google Chrome** (it does not work with Safari...), install [this proxy extension](https://chromewebstore.google.com/detail/proxy-switcher-and-manage/onnfghpihccifgojkpnnncpagjcdbjod)
+ - Go to the settings of the extension and import the settings from `proxy-switcher-preferences.json` file that you can download from this repository
+
+### Using it
+
+The setting above allows you to use a proxy for your Google Chrome traffic, routing it through some server. To use this, you need to do two things:
+
+ - Connect to pascal via ssh (`ssh pascal`)and leave the terminal open
+ - Use Google Chrome, enable the `Manual Proxy` with the extension by clicking on the extension simbol and then on manual proxy.
+ - Go to the website https://jupyterhub.idris.fr
+ - Launch a vscode instance on the login node.
+
+When you are done, use the extension to go back to `direct mode` and deconnect from pascal.
+
+
