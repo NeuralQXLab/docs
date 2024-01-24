@@ -85,4 +85,9 @@ With those general instructions, the ideal way to use Cholesky for us is the fol
  - load the **MAMBAFORGE** package with `modules load mambaforge`
    - I suggest you add this line to your `.bash_profile` so that it is always executed when you connect to the cluster
  - Create python environemnts with `mamba create --name ENV_NAME python=3.11` where `ENV_NAME` is the name of the environment (keep it short!) and `python=3.11` is the python version you want to use. Try to use at least 3.11.
+ - Load the python environment `conda activate ENV_NAME`
+ - Install python packages `pip install --upgrade netket ...`
+ 
+
+
 
